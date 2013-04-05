@@ -1,13 +1,17 @@
-// Sticky v1.0 by Daniel Raftery
-// http://thrivingkings.com/sticky
-//
-// http://twitter.com/ThrivingKings
+/*
+	Sticky v2.0 by Andy Matthews
+	http://twitter.com/commadelimited
+
+	forked from Sticky by Daniel Raftery
+	http://twitter.com/ThrivingKings
+*/
 (function ($) {
 
 	// generate unique ID based on the hash of the content.
 	String.prototype.hashCode = function(){
 		var hash = 0,
 			i = 0,
+			c = '',
 			len = this.length;
 		if (len === 0) return hash;
 		for (i = 0; i < len; i++) {
@@ -40,16 +44,16 @@
 		$('.sticky').each(function () {
 			if ($(this).attr('id') === content.hashCode()) {
 				duplicate = true;
-				if (!o['allowdupes']) {
+				if (!o.allowdupes) {
 					display = false;
 				}
 			}
-			if ($(this).attr('id') == uniqID) uniqID = content.hashCode();
+			if ($(this).attr('id') === uniqID) uniqID = content.hashCode();
 		});
 
 		// Make sure the sticky queue exists
 		if (!$('.sticky-queue').length) {
-			$('body').append('<div class="sticky-queue ' + o['position'] + '">');
+			$('body').append('<div class="sticky-queue ' + o.position + '">');
 		}
 
 		// Can it be displayed?
@@ -58,11 +62,11 @@
 			tmpl = '<div class="sticky border-POS" id="ID"><span class="sticky-close"></span><div class="sticky-note">NOTE</div></div>';
 			$('.sticky-queue').prepend(
 				tmpl
-					.replace('POS', o['position'])
+					.replace('POS', o.position)
 					.replace('ID', uniqID)
 					.replace('NOTE', content)
 			);
-			$('#' + uniqID).slideDown(o['speed']);
+			$('#' + uniqID).slideDown(o.speed);
 
 			display = true;
 		}
@@ -70,8 +74,8 @@
 		// Listeners
 		$('.sticky').ready(function () {
 			// If 'autoclose' is enabled, set a timer to close the sticky
-			if (o['autoclose']) {
-				$('#' + uniqID).delay(o['autoclose']).fadeOut(o['speed'], function(){
+			if (o.autoclose) {
+				$('#' + uniqID).delay(o.autoclose).fadeOut(o.speed, function(){
 					// remove element from DOM
 					$(this).remove();
 				});
@@ -80,7 +84,7 @@
 
 		// Closing a sticky
 		$('.sticky-close').on('click', function () {
-			$('#' + $(this).parent().attr('id')).dequeue().fadeOut(o['speed']);
+			$('#' + $(this).parent().attr('id')).dequeue().fadeOut(o.speed);
 		});
 
 		// Callback data
@@ -88,7 +92,7 @@
 			'id': uniqID,
 			'duplicate': duplicate,
 			'displayed': display,
-			'position': o['position']
+			'position': o.position
 		};
 
 		// Callback function?
