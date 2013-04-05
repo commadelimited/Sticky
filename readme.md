@@ -1,6 +1,3 @@
-Sticky
-======
+# Sticky
 
-A super simple notification system for jQuery
-
-http://thrivingkings.com/read/Sticky-A-super-simple-notification-system-built-with-jQuery
+A simple, lightweight notification plugin for jQuery.

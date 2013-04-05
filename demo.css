@@ -1,0 +1,67 @@
+/* Global */
+
+body {
+	background: #fff;
+	color: #4a4a4a;
+	font-family: "Quattrocento Sans", Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+
+/* Buttons */
+
+li.tryit {
+	background: #eee;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	-moz-box-shadow: 0 2px rgba(0,0,0,0.2);
+	-webkit-box-shadow: 0 2px rgba(0,0,0,0.2);
+	box-shadow: 0 2px rgba(0,0,0,0.2);
+	cursor: pointer;
+	display: inline-block;
+	font-size: 16px;
+	font-weight: bold;
+	margin: 5px 10px 10px 0;
+	padding: 8px 15px;
+	position: relative;
+	text-decoration: none;
+	text-shadow: 0 1px 0 #fff;
+}
+
+li.tryit:hover {
+	background: #fafafa;
+}
+
+li.tryit:active {
+	box-shadow: none;
+	top: 2px;
+}
+
+a.download {
+	background: #1EC9FC;
+	border: 1px solid #0396c2;
+	border-radius: 3px;
+	-moz-box-shadow: 0 2px #04b0e3;
+	-webkit-box-shadow: 0 2px #04b0e3;
+	box-shadow: 0 2px #04b0e3;
+	color: #fff;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 16px;
+	font-weight: bold;
+	margin: 0 10px 10px 0;
+	padding: 8px 15px;
+	position: relative;
+	text-decoration: none;
+	text-shadow: 0 1px 0 #777;
+}
+
+a.download:hover {
+	background: #40d1fc;
+}
+
+a.download:active {
+	box-shadow: none;
+	top: 2px;
+}

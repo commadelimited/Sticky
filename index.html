@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    <head>
+        <title>Sticky. A super simple notification system built with jQuery ThrivingKings | web development, code snippets, and general nonsense</title>
+        <meta charset="utf-8" />
+
+        <!-- CSS -->
+        <link href="demo.css" rel="stylesheet" type="text/css" />
+        <link href="http://thrivingkings.com/css/foundation.css" rel="stylesheet" type="text/css" />
+        <link href="http://thrivingkings.com/css/prettify.css" type="text/css" rel="stylesheet" />
+        <link href="sticky.css" rel="stylesheet" type="text/css" />
+
+        <!-- JavaScript -->
+        <script type="text/javascript" src="http://thrivingkings.com/js/jquery.js"></script>
+        <script src="sticky.js" type="text/javascript"></script>
+
+    </head>
+<body>
+    <div class="row">
+
+        <div class="twelve columns article">
+
+
+        <h1>Sticky. A super simple notification system for jQuery</h1>
+
+        <p>Let's face it, your users need sweet little notifications to keep them all warm and fuzzy inside. Sticky allows you to send such messages with ease, and class. Quickly notify a user of software updates, process completions, or annoy them with registration reminders.</p>
+
+        <h2>Demo</h2>
+        <p>Let's start with some basic messages. The default position is top-right with an 'autoclose' of 5 seconds. You'll also notice that duplicates are allowed, although you can disable duplicate messages within the settings.</p>
+        <li class="tryit" onclick="stickytester('<b>Can you see me?</b> I bet you\'re feeling warm and fuzzy inside right now.');">$.sticky('&lt;b>Can you see me?&lt;/b>...');</li>
+        <li class="tryit" onclick="stickytester('Upload complete');">$.sticky('Upload complete');</li>
+        <li class="tryit" onclick="stickytester('<b>You have a new message!</b>');">$.sticky('&lt;b>You have a new message!&lt;/b>');</li>
+        <div style="clear:both;"></div>
+        <p><b>Returned: <span id="results" style="color:#eb5847;"></span></b></p>
+
+        <p>As you can see above, a bit of JSON will be returned with some potentially pertinent information. Now, let's use Sticky in a more traditional sense and attach it to an object. Below is a div with my Twitter profile picture and bio. The styling of the elements within the object will be carried into the Sticky note.</p>
+        <div id="ThrivingKings" style="border:1px solid #aaa; padding:10px;width:400px;"><img src="http://api.twitter.com/1/users/profile_image?screen_name=ThrivingKings" style="height:48px;float:left;" /><p id="tweet" style="margin:0;padding:0;margin-left:60px;font-size:13px;font-style:italic;">Software engineer. Scotch obsessed, cigar smoking, burrito consuming, motorcycle riding nerd. Founder of Purple Pig</p></div>
+        <div style="clear:both;margin-bottom:20px;"></div>
+        <li class="tryit" onclick="$('#ThrivingKings').sticky();">$('#ThrivingKings').sticky();</li>
+
+        <h2>Download</h2>
+        <p>Sticky is just a little guy. About 3.8kb in total for the full and 2.1kb for the minified version.</p>
+
+        <a href="http://cl.ly/8ZVi" class="download">Download full</a>
+        <a href="http://cl.ly/8Z13" class="download">Download minified</a>
+        <a href="https://github.com/ThrivingKings/Sticky" class="download">GitHub</a>
+
+        <h2>Implementing</h2>
+        <p>Getting sticky up and running is extremely easy. Just add <a href="http://jquery.com">jQuery</a> to your <b>head</b> section along with the Sticky files.</p>
+        <pre>
+        &lt;script type="text/javascript" src="http://code.jquery.com/jquery-1.6.2.min.js">&lt;/script>
+        &lt;script type="text/javascript" src="sticky.js">&lt;/script>
+        &lt;link rel="stylesheet" href="sticky.css" type="text/css" />
+        </pre>
+
+        <p>Now, you're ready to get busy sending Sticky notes!</p>
+
+        <pre>
+         &lt;script>
+         $(document).ready(function() {
+             $.sticky('The page has loaded!');
+         });
+         &lt;/script>
+        </pre>
+
+        <p>Or attach it to the object your choice.</p>
+        <pre>
+        $('#download_status').sticky();
+        </pre>
+
+        <h2>Manipulating</h2>
+        <p>The styling behind Sticky is all CSS. If you want to go for a different look, that's how you'll make it happen. The position can't change from one Sticky to another so that option cannot be passed when calling Sticky. You will have to edit that variable within the <b>sticky.js</b> file to change the position. The other options are pretty straight forward and easy to adjust.</p>
+
+        <pre>
+        var position = 'top-right';     // top-left, top-right, bottom-left, or bottom-right
+
+        var settings = {
+            'speed' : 'fast',   // animations: fast, slow, or integer
+            'duplicates' : true,    // true or false
+            'autoclose' : 5000 // integer or false
+        };
+        </pre>
+
+        <h2>License</h2>
+        <p>Licensed under the <a href="http://en.wikipedia.org/wiki/MIT_License">MIT License</a></p>
+
+        <script>
+            function stickytester(note, options) {
+                $.sticky(note, options, function(r) {
+                    $('#results').html(JSON.stringify(r));
+                });
+            }
+        </script>
+
+    </div>
+</body>
+</html>
