@@ -15,15 +15,13 @@
     </head>
 <body>
     <div>
-        <h1>Sticky. A super simple notification system for jQuery</h1>
-
-        <p>Let's face it, your users need sweet little notifications to keep them all warm and fuzzy inside. Sticky allows you to send such messages with ease, and class. Quickly notify a user of software updates, process completions, or annoy them with registration reminders.</p>
+        <h1>Sticky. A simple notification system for jQuery</h1>
 
         <h2>Demo</h2>
-        <p>Let's start with some basic messages. The default position is top-right with an 'autoclose' of 5 seconds. You'll also notice that duplicates are allowed, although you can disable duplicate messages within the settings.</p>
-        <li class="tryit" onclick="stickytester('<b>Can you see me?</b> I bet you\'re feeling warm and fuzzy inside right now.');">$.sticky('&lt;b>Can you see me?&lt;/b>...');</li>
-        <li class="tryit" onclick="stickytester('Upload complete');">$.sticky('Upload complete');</li>
-        <li class="tryit" onclick="stickytester('<b>You have a new message!</b>');">$.sticky('&lt;b>You have a new message!&lt;/b>');</li>
+        <p>Start with some basic messages. The default position is top-right with an 'autoclose' of 5 seconds. You'll also notice that duplicates are allowed, although you can disable duplicate messages within the settings.</p>
+        <p class="tryit" onclick="stickytester('<b>Can you see me?</b><br /> I bet you\'re feeling warm and fuzzy inside right now.');">$.sticky('&lt;b>Can you see me?&lt;/b> I bet you're feeling warm and fuzzy inside right now.');</p>
+        <p class="tryit" onclick="stickytester('Upload complete');">$.sticky('Upload complete');</p>
+        <p class="tryit" onclick="stickytester('<b>You have a new message!</b>');">$.sticky('&lt;b>You have a new message!&lt;/b>');</p>
 
         <p><b>Returned: <span id="results" style="color:#eb5847;"></span></b></p>
 
@@ -69,10 +67,10 @@
         <p>The styling behind Sticky is all CSS. If you want to go for a different look, that's how you'll make it happen. The position can't change from one Sticky to another so that option cannot be passed when calling Sticky. You will have to edit that variable within the <b>sticky.js</b> file to change the position. The other options are pretty straight forward and easy to adjust.</p>
 
         <pre>
-        var position = 'top-right';     // top-left, top-right, bottom-left, or bottom-right
+        var position = 'bottom-right';     // top-left, top-right, bottom-left, or bottom-right
         var settings = {
             'speed' : 'fast',   // animations: fast, slow, or integer
-            'duplicates' : true,    // true or false
+            'allowdupes' : true,    // true or false
             'autoclose' : 5000 // integer or false
         };
         </pre>
@@ -82,6 +80,12 @@
 
         <script>
             function stickytester(note, options) {
+                var options = {
+                    'position': 'bottom-right', // top-left, top-right, bottom-left, or bottom-right
+                    'speed' : 'fast',   // animations: fast, slow, or integer
+                    'allowdupes' : false,    // true or false
+                    'autoclose' : 5000 // integer or false
+                };
                 $.sticky(note, options, function(r) {
                     $('#results').html(JSON.stringify(r));
                 });
