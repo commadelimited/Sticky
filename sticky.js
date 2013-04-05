@@ -91,8 +91,7 @@
 		var response = {
 			'id': uniqID,
 			'duplicate': duplicate,
-			'displayed': display,
-			'position': o.position
+			'displayed': display
 		};
 
 		// Callback function?
