@@ -8,10 +8,15 @@ body {
 	padding: 0;
 }
 
+body > div {
+	width: 800px;
+	margin: 0 auto;
+}
+
 
 /* Buttons */
 
-li.tryit {
+.tryit {
 	background: #eee;
 	border: 1px solid #ccc;
 	border-radius: 3px;
@@ -29,11 +34,11 @@ li.tryit {
 	text-shadow: 0 1px 0 #fff;
 }
 
-li.tryit:hover {
+.tryit:hover {
 	background: #fafafa;
 }
 
-li.tryit:active {
+.tryit:active {
 	box-shadow: none;
 	top: 2px;
 }
