@@ -1,5 +1,5 @@
 /*
-	Sticky v2.0 by Andy Matthews
+	Sticky v2.0.1 by Andy Matthews
 	http://twitter.com/commadelimited
 
 	forked from Sticky by Daniel Raftery
@@ -7,32 +7,30 @@
 */
 (function ($) {
 
-	// generate unique ID based on the hash of the content.
-	String.prototype.hashCode = function(){
-		var hash = 0,
-			i = 0,
-			c = '',
-			len = this.length;
-		if (len === 0) return hash;
-		for (i = 0; i < len; i++) {
-			c = this.charCodeAt(i);
-			hash = ((hash<<5)-hash) + c;
-			hash &= hash;
-		}
-		return 's'+Math.abs(hash);
-	};
-
 	$.sticky = $.fn.sticky = function (note, options, callback) {
 
-		// Default o
-		var content = (!note) ? this.html() : note, // Passing in the object instead of specifying a note
+		// generate unique ID based on the hash of the content.
+		var hashCode = function(str){
+				var hash = 0,
+					i = 0,
+					c = '',
+					len = str.length;
+				if (len === 0) return hash;
+				for (i = 0; i < len; i++) {
+					c = str.charCodeAt(i);
+					hash = ((hash<<5)-hash) + c;
+					hash &= hash;
+				}
+				return 's'+Math.abs(hash);
+			},
+			content = (!note) ? this.html() : note, // Passing in the object instead of specifying a note
 			o = {
 				'position': 'top-right', // top-left, top-right, bottom-left, or bottom-right
 				'speed': 'fast', // animations: fast, slow, or integer
 				'allowdupes': true, // true or false
 				'autoclose': 5000 // integer or false
 			},
-			uniqID = content.hashCode(), // Somewhat of a unique ID
+			uniqID = hashCode(content), // Somewhat of a unique ID
 			display = true,
 			duplicate = false,
 			tmpl = '';
@@ -42,13 +40,13 @@
 
 		// Handling duplicate notes and IDs
 		$('.sticky').each(function () {
-			if ($(this).attr('id') === content.hashCode()) {
+			if ($(this).attr('id') === hashCode(content)) {
 				duplicate = true;
 				if (!o.allowdupes) {
 					display = false;
 				}
 			}
-			if ($(this).attr('id') === uniqID) uniqID = content.hashCode();
+			if ($(this).attr('id') === uniqID) uniqID = hashCode(content);
 		});
 
 		// Make sure the sticky queue exists
