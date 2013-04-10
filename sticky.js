@@ -1,5 +1,5 @@
 /*
-	Sticky v2.1 by Andy Matthews
+	Sticky v2.1.1 by Andy Matthews
 	http://twitter.com/commadelimited
 
 	forked from Sticky by Daniel Raftery
@@ -8,8 +8,6 @@
 (function ($) {
 
 	$.sticky = $.fn.sticky = function (note, options, callback) {
-
-		window.console.log(options);
 
 		// allow options to be ignored, and callback to be second argument
 		if (typeof options === 'function') callback = options;
@@ -96,7 +94,6 @@
 
 		// Closing a sticky
 		$('.sticky-close').on('click', function () {
-			window.console.log('what what?');
 			$('#' + $(this).parent().attr('id')).dequeue().fadeOut(o.speed, function(){
 				// remove element from DOM
 				$(this).remove();
