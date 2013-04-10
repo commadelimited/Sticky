@@ -1,5 +1,5 @@
 /*
-	Sticky v2.0.1 by Andy Matthews
+	Sticky v2.1 by Andy Matthews
 	http://twitter.com/commadelimited
 
 	forked from Sticky by Daniel Raftery
@@ -9,7 +9,12 @@
 
 	$.sticky = $.fn.sticky = function (note, options, callback) {
 
-		// generate unique ID based on the hash of the content.
+		window.console.log(options);
+
+		// allow options to be ignored, and callback to be second argument
+		if (typeof options === 'function') callback = options;
+
+		// generate unique ID based on the hash of the note.
 		var hashCode = function(str){
 				var hash = 0,
 					i = 0,
@@ -23,30 +28,30 @@
 				}
 				return 's'+Math.abs(hash);
 			},
-			content = (!note) ? this.html() : note, // Passing in the object instead of specifying a note
 			o = {
-				'position': 'top-right', // top-left, top-right, bottom-left, or bottom-right
-				'speed': 'fast', // animations: fast, slow, or integer
-				'allowdupes': true, // true or false
-				'autoclose': 5000 // integer or false
+				position: 'top-right', // top-left, top-right, bottom-left, or bottom-right
+				speed: 'fast', // animations: fast, slow, or integer
+				allowdupes: true, // true or false
+				autoclose: 5000,  // delay in milliseconds. Set to 0 to remain open.
+				classList: '' // arbitrary list of classes. Suggestions: success, warning, important, or info. Defaults to ''.
 			},
-			uniqID = hashCode(content), // Somewhat of a unique ID
+			uniqID = hashCode(note), // a relatively unique ID
 			display = true,
 			duplicate = false,
-			tmpl = '';
+			tmpl = '<div class="sticky border-POS CLASSLIST" id="ID"><span class="sticky-close"></span><div class="sticky-note">NOTE</div></div>';
 
 		// merge default and incoming options
 		if (options) $.extend(o, options);
 
 		// Handling duplicate notes and IDs
 		$('.sticky').each(function () {
-			if ($(this).attr('id') === hashCode(content)) {
+			if ($(this).attr('id') === hashCode(note)) {
 				duplicate = true;
 				if (!o.allowdupes) {
 					display = false;
 				}
 			}
-			if ($(this).attr('id') === uniqID) uniqID = hashCode(content);
+			if ($(this).attr('id') === uniqID) uniqID = hashCode(note);
 		});
 
 		// Make sure the sticky queue exists
@@ -57,16 +62,25 @@
 		// Can it be displayed?
 		if (display) {
 			// Building and inserting sticky note
-			tmpl = '<div class="sticky border-POS" id="ID"><span class="sticky-close"></span><div class="sticky-note">NOTE</div></div>';
 			$('.sticky-queue').prepend(
 				tmpl
 					.replace('POS', o.position)
 					.replace('ID', uniqID)
-					.replace('NOTE', content)
-			);
-			$('#' + uniqID).slideDown(o.speed);
+					.replace('NOTE', note)
+					.replace('CLASSLIST', o.classList)
+			).find('#' + uniqID)
+			.slideDown(o.speed, function(){
+				display = true;
+				// Callback function?
+				if (callback && typeof callback === 'function') {
+					callback({
+						'id': uniqID,
+						'duplicate': duplicate,
+						'displayed': display
+					});
+				}
+			});
 
-			display = true;
 		}
 
 		// Listeners
@@ -82,20 +96,12 @@
 
 		// Closing a sticky
 		$('.sticky-close').on('click', function () {
-			$('#' + $(this).parent().attr('id')).dequeue().fadeOut(o.speed);
+			window.console.log('what what?');
+			$('#' + $(this).parent().attr('id')).dequeue().fadeOut(o.speed, function(){
+				// remove element from DOM
+				$(this).remove();
+			});
 		});
-
-		// Callback data
-		var response = {
-			'id': uniqID,
-			'duplicate': duplicate,
-			'displayed': display
-		};
-
-		// Callback function?
-		if (callback) {
-			callback(response);
-		}
 
 	};
 })(jQuery);

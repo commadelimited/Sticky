@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en">
     <head>
-        <title>Sticky. Version 2 of the notification library originally written by ThrivingKings</title>
-        <meta charset="utf-8" />
 
+        <meta charset='UTF-8'>
+
+        <title>Sticky. Version 2 of the notification library originally written by ThrivingKings</title>
         <!-- CSS -->
         <link href="demo.css" rel="stylesheet" type="text/css" />
         <link href="sticky.css" rel="stylesheet" type="text/css" />
@@ -17,33 +18,93 @@
     <div>
         <h1>Sticky. A simple notification system for jQuery</h1>
 
-        <p>Start with some basic messages. The default position is top-right with an 'autoclose' of 5 seconds. You'll also notice that duplicates are allowed, although you can disable duplicate messages within the settings.</p>
-        <p class="tryit" onclick="stickytester('<b>Can you see me?</b><br /> I bet you\'re feeling warm and fuzzy inside right now.');">$.sticky('&lt;b>Can you see me?&lt;/b> I bet you're feeling warm and fuzzy inside right now.');</p>
-        <p class="tryit" onclick="stickytester('Upload complete');">$.sticky('Upload complete');</p>
-        <p class="tryit" onclick="stickytester('<b>You have a new message!</b>');">$.sticky('&lt;b>You have a new message!&lt;/b>');</p>
+        <a href="https://github.com/commadelimited/Sticky" class="download" style="float: right;">Download from Github</a>
+
+        <p>Sticky is just a little guy. About 2.8k in total for the full and only 1.3k for the minified version.</p>
+
+        <p>Here's some basic examples of implementing notifications with Sticky. By default, a Sticky opens in the top right corner of the window. You'll also notice that duplicates are allowed, although you can disable duplicate messages within the settings.</p>
+
+        <hr />
+
+        <p>Plain note, all default options</p>
+        <p class="tryit" id="plaintext">$.sticky('I am a plain text note. Nothing special about me.');</p>
+
+        <p>Plain note, default options, custom callback function</p>
+        <p class="tryit" id="withhtml">$.sticky('<b>Greetings</b>. I am an HTML note.');</p>
+
+        <p>Plain note, default options, custom callback function</p>
+        <p class="tryit" id="callback">$.sticky('I am a plain text note. I'll tell you good job!.', callback);</p>
+
+        <p>Overriding classList and speed</p>
+        <p class="tryit" id="success">$.sticky('Upload complete', {classList: 'success', speed: 'slow'});</p>
+
+        <p>Overriding classList with warning class.</p>
+        <p class="tryit" id="warning">$.sticky('Careful, there be dragons ahead', {classList: 'warning'});</p>
+
+        <p>Overriding classList, making note stay open.</p>
+        <p class="tryit" id="important">$.sticky('I give up, it just won't work.', {classList: 'important', autoclose: 0});</p>
+
+        <p>Overriding classList, allowing no duplicates.</p>
+        <p class="tryit" id="info">$.sticky('I just wanted you to know', {classList: 'info', allowdupes: false});</p>
 
         <p><b>Returned: <span id="results" style="color:#eb5847;"></span></b></p>
 
-        <p>As you can see above, a bit of JSON will be returned with some potentially pertinent information. Now, let's use Sticky in a more traditional sense and attach it to an object. Below is a div with my Twitter profile picture and bio. The styling of the elements within the object will be carried into the Sticky note.</p>
+        <p>As you can see above, a bit of JSON will be returned with some potentially pertinent information.</p>
 
-        <div id="commadelimited" style="border:1px solid #aaa; padding:10px;width:400px;"><img src="http://api.twitter.com/1/users/profile_image?screen_name=commadelimited" style="height:48px;float:left;" /><p id="tweet" style="margin:0;padding:0;margin-left:60px;font-size:13px;font-style:italic;">Application developer (web, desktop and mobile) + Author + Blogger + Christian + Father + Husband + Music-Lover + Reader + Cook</p></div>
-
-        <p class="tryit" onclick="$('#commadelimited').sticky();">$('#commadelimited').sticky();</p>
-
-        <h2>Download</h2>
-        <p>Sticky is just a little guy. About 2.6k in total for the full and only 1.2k for the minified version.</p>
-
-        <a href="https://github.com/commadelimited/Sticky" class="download">Fork me on GitHub</a>
+        <style type="text/css">
+            .success { background: #468847; color: #ffffff; }
+            .warning { background: #f89406; color: #ffffff; }
+            .important { background: #b94a48; color: #ffffff; }
+            .info { background: #3a87ad; color: #ffffff; }
+        </style>
 
         <script>
-            function stickytester(note, options) {
-                var options = {
-                    'position': 'bottom-right', // top-left, top-right, bottom-left, or bottom-right
-                    'speed' : 'fast',   // animations: fast, slow, or integer
-                    'allowdupes' : false,    // true or false
-                    'autoclose' : 5000 // integer or false
+            $(function(){
+                var defaults = {
+                    position: 'top-right', // top-left, top-right, bottom-left, or bottom-right
+                    speed: 'fast', // animations: fast, slow, or integer
+                    allowdupes: true, // true or false
+                    autoclose: 5000,  // delay in milliseconds. Set to 0 to remain open.
+                    classList: '' // arbitrary list of classes. Suggestions: success, warning, important, or info. Defaults to ''.
                 };
-                $.sticky(note, options, function(r) {
+
+                function callback(r) {
+                    $('#results').html(JSON.stringify(r));
+                }
+
+                $('#plaintext').click(function(){
+                    $.sticky('I am a plain text note. Nothing special about me.', defaults, callback);
+                });
+                $('#withhtml').click(function(){
+                    $.sticky('<b>Greetings</b>. I am an HTML note.')
+                });
+                $('#callback').click(function(){
+                    $.sticky('I am a plain text note. I\'ll tell you good job!', function(){
+                        alert("You did it! Great job!");
+                    });
+                });
+                $('#success').click(function(){
+                    $.sticky('Upload complete', $.extend({}, defaults, {classList: 'success', speed: 'slow'}), callback)
+                });
+                $('#warning').click(function(){
+                    $.sticky('Careful, there be dragons ahead', $.extend({}, defaults, {classList: 'warning'}), callback)
+                });
+                $('#important').click(function(){
+                    $.sticky('I give up, it just won\'t work.', $.extend({}, defaults, {classList: 'important', autoclose: 0}), callback);
+                });
+                $('#info').click(function(){
+                    $.sticky('I just wanted you to know', $.extend({}, defaults, {classList: 'info', allowdupes: false}), callback);
+                });
+
+            });
+            function stickytester(note, options) {
+                var o = $.extend({
+                    'position': 'bottom-right', // top-left, top-right, bottom-left, or bottom-right
+                    'speed' : 'fast', // animations: fast, slow, or integer
+                    'allowdupes' : false, // true or false
+                    'autoclose' : 0 // delay in milliseconds. Set to 0 to remain open.
+                }, options);
+                $.sticky(note, o, function(r) {
                     $('#results').html(JSON.stringify(r));
                 });
             }
