@@ -6,49 +6,57 @@ A simple, lightweight notification plugin for jQuery.
 
 Sticky allows developers to quickly and easily display messages to users via a simple and streamlined notification center. Sticky is unique in that it groups multiple messages together to prevent cluttering up your beautiful interface.
 
-Sticky is only 2.6k raw,
+Sticky is only 1.3k for the minified version and 2.8k for the full.
 
 ## Installation
 
 Using Sticky is easy.
 
-* Include jQuery, sticky.min.js, and sticky.min.css
+* Include jQuery, sticky.min.js, and sticky.css
 * Send messages!
-
 
 ### Usage
 
-You can either push a message directly to Sticky:
+Plain note, default options
 
-```
-$.sticky('Upload complete');
+`$.sticky('I am a plain text note. Nothing special about me.');`
 
-```
+Plain note, default options, html content
 
-or you can attach Sticky to an existing object;
+`$.sticky('<b>Greetings</b>. I am an HTML note.');`
 
-```
- <div id="commadelimited">
-    <img src="http://api.twitter.com/1/users/profile_image?screen_name=commadelimited" style="height:48px;float:left;" />
-    <p style="margin:0;padding:0;margin-left:60px;font-size:13px;font-style:italic;">
-        Application developer (web, desktop and mobile) + Author + Blogger + Christian + Father + Husband + Music-Lover + Reader + Cook
-    </p>
-</div>
+Plain note, default options, custom callback function
 
-$('#commadelimited').sticky();
-```
+`$.sticky('I am a plain text note. I'll tell you good job!.', callback);`
 
-Sticky takes an optional callback function which accepts an object containing information about the note just added:
+Overriding classList and speed
+
+`$.sticky('Upload complete', {classList: 'success', speed: 'slow'});`
+
+Overriding classList with warning class.
+
+`$.sticky('Careful, there be dragons ahead', {classList: 'warning'});`
+
+Overriding classList, making note stay open.
+
+`$.sticky('I give up, it just won't work.', {classList: 'important', autoclose: 0});`
+
+Overriding classList, allowing no duplicates.
+
+`$.sticky('I just wanted you to know', {classList: 'info', allowdupes: false});`
+
+
+Sticky takes an optional callback function which receives an object containing information about the note just added:
 
 ```
 $.sticky(note, options, function(response) {
-	JSON.stringify(response);
+    JSON.stringify(response);
 });
 
 var response = {
-	'id': uniqID, // Generated ID, an mdg hash of the contents of the note.
-	'duplicate': duplicate, // whether this note was a duplicate
-	'displayed': display, // whether the note was displayed
+    'id': uniqID, // Generated ID, a hash of the message contents.
+    'duplicate': duplicate, // whether this note was a duplicate
+    'displayed': display, // whether the note was displayed
 };
 ```
 
@@ -56,10 +64,11 @@ var response = {
 
 ```
 var options = {
-    'position': 'bottom-right', // top-left, top-right, bottom-left, or bottom-right
-    'speed' : 'fast', // animations: fast, slow, or integer
-    'allowdupes' : false, // true or false
-    'autoclose' : 5000 // integer or false
+    position: 'top-right', // top-left, top-right, bottom-left, or bottom-right
+    speed: 'fast', // animations: fast, slow, or integer
+    allowdupes: true, // true or false
+    autoclose: 5000,  // delay in milliseconds. Set to 0 to remain open.
+    classList: '' // arbitrary list of classes. Suggestions: success, warning, important, or info. Defaults to ''.
 };
 ```
 
