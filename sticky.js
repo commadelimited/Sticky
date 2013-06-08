@@ -36,7 +36,7 @@
 			uniqID = hashCode(note), // a relatively unique ID
 			display = true,
 			duplicate = false,
-			tmpl = '<div class="sticky border-POS CLASSLIST" id="ID"><span class="sticky-close"></span><div class="sticky-note">NOTE</div></div>';
+			tmpl = '<div class="sticky border-POS CLASSLIST" id="ID"><span class="sticky-close"></span><p class="sticky-note">NOTE</p></div>';
 
 		// merge default and incoming options
 		if (options) $.extend(o, options);
