@@ -4,9 +4,9 @@ A simple, lightweight notification plugin for jQuery.
 
 ## Overview
 
-Sticky allows developers to quickly and easily display messages to users via a simple and streamlined notification center. Sticky is unique in that it groups multiple messages together to prevent cluttering up your beautiful interface.
+Sticky allows developers to quickly and easily display messages to users via a simple and streamlined notification center. Sticky is unique in that it groups multiple messages together to help keep your beautiful interface clutter-free.
 
-Sticky is only 1.3k for the minified version and 2.8k for the full.
+Sticky is only 1.4k for the minified version and 3.1k for the full.
 
 ## Installation
 
@@ -32,6 +32,10 @@ Plain note, default options, custom callback function
 Overriding classList and speed
 
 `$.sticky('Upload complete', {classList: 'success', speed: 'slow'});`
+
+Overriding position
+
+`$.sticky('I'm at the bottom! Look at me!, {position: 'bottom-center'});`
 
 Overriding classList with warning class.
 
@@ -64,7 +68,7 @@ var response = {
 
 ```
 var options = {
-    position: 'top-right', // top-left, top-right, bottom-left, or bottom-right
+    position: 'top-right', // top-left, top-center, top-right, bottom-left, bottom-center, or bottom-right
     speed: 'fast', // animations: fast, slow, or integer
     allowdupes: true, // true or false
     autoclose: 5000,  // delay in milliseconds. Set to 0 to remain open.

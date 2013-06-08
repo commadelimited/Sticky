@@ -1,5 +1,5 @@
 /*
-	Sticky v2.1.1 by Andy Matthews
+	Sticky v2.1.2 by Andy Matthews
 	http://twitter.com/commadelimited
 
 	forked from Sticky by Daniel Raftery
@@ -46,9 +46,7 @@
 		$('.sticky').each(function () {
 			if ($(this).attr('id') === hashCode(note)) {
 				duplicate = true;
-				if (!o.allowdupes) {
-					display = false;
-				}
+				if (!o.allowdupes) display = false;
 			}
 			if ($(this).attr('id') === uniqID) uniqID = hashCode(note);
 		});
