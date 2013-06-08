@@ -40,6 +40,7 @@
 	@include border-bottom-radius(6px);
 }
 .bottom-right { right:20px; }
+.bottom-center { bottom: -2px; left: 50%; margin-left: -125px; }
 .bottom-left { left:20px; }
 .bottom-right,
 .bottom-center,

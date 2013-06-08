@@ -67,10 +67,16 @@
   right: 20px; }
 
 /* line 43, sticky.scss */
+.bottom-center {
+  bottom: -2px;
+  left: 50%;
+  margin-left: -125px; }
+
+/* line 44, sticky.scss */
 .bottom-left {
   left: 20px; }
 
-/* line 46, sticky.scss */
+/* line 47, sticky.scss */
 .bottom-right,
 .bottom-center,
 .bottom-left {
@@ -82,10 +88,10 @@
   -webkit-border-top-right-radius: 6px;
   border-top-right-radius: 6px; }
 
-/* line 50, sticky.scss */
+/* line 51, sticky.scss */
 .border-top-right, .border-top-center, .border-top-left {
   border-top: 1px solid #999; }
 
-/* line 51, sticky.scss */
+/* line 52, sticky.scss */
 .border-bottom-right, .border-bottom-center, .border-bottom-left {
   border-bottom: 1px solid #999; }

@@ -36,7 +36,8 @@
 			uniqID = hashCode(note), // a relatively unique ID
 			display = true,
 			duplicate = false,
-			tmpl = '<div class="sticky border-POS CLASSLIST" id="ID"><span class="sticky-close"></span><p class="sticky-note">NOTE</p></div>';
+			tmpl = '<div class="sticky border-POS CLASSLIST" id="ID"><span class="sticky-close"></span><p class="sticky-note">NOTE</p></div>',
+			positions = ['top-right', 'top-center', 'top-left', 'bottom-right', 'bottom-center', 'bottom-left'];
 
 		// merge default and incoming options
 		if (options) $.extend(o, options);
@@ -55,6 +56,10 @@
 		// Make sure the sticky queue exists
 		if (!$('.sticky-queue').length) {
 			$('body').append('<div class="sticky-queue ' + o.position + '">');
+		} else {
+			// if it exists already, but the position param is different,
+			// then allow it to be overridden
+			$('.sticky-queue').removeClass( positions.join(' ') ).addClass(o.position);
 		}
 
 		// Can it be displayed?
