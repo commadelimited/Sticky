@@ -50,8 +50,9 @@
 .top-left {
   left: 20px; }
 
-/* line 37, sticky.scss */
+/* line 38, sticky.scss */
 .top-right,
+.top-center,
 .top-left {
   top: -2px;
   -moz-border-radius-bottomleft: 6px;
@@ -61,16 +62,17 @@
   -webkit-border-bottom-right-radius: 6px;
   border-bottom-right-radius: 6px; }
 
-/* line 41, sticky.scss */
+/* line 42, sticky.scss */
 .bottom-right {
   right: 20px; }
 
-/* line 42, sticky.scss */
+/* line 43, sticky.scss */
 .bottom-left {
   left: 20px; }
 
-/* line 44, sticky.scss */
+/* line 46, sticky.scss */
 .bottom-right,
+.bottom-center,
 .bottom-left {
   bottom: -2px;
   -moz-border-radius-topleft: 6px;
@@ -80,10 +82,10 @@
   -webkit-border-top-right-radius: 6px;
   border-top-right-radius: 6px; }
 
-/* line 48, sticky.scss */
-.border-top-right, .border-top-left {
+/* line 50, sticky.scss */
+.border-top-right, .border-top-center, .border-top-left {
   border-top: 1px solid #999; }
 
-/* line 49, sticky.scss */
-.border-bottom-right, .border-bottom-left {
+/* line 51, sticky.scss */
+.border-bottom-right, .border-bottom-center, .border-bottom-left {
   border-bottom: 1px solid #999; }

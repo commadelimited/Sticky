@@ -39,7 +39,10 @@
         <p class="tryit" id="success">$.sticky('Upload complete', {classList: 'success', speed: 'slow'});</p>
 
         <p>Opening a note top, center</p>
-        <p class="tryit" id="top-center">$.sticky('Upload complete', {position: 'top-center',  autoclose: 0});</p>
+        <p class="tryit" id="top-center">$.sticky('Clever message', {position: 'top-center'});</p>
+
+        <p>Opening a note bottom, center</p>
+        <p class="tryit" id="bottom-center">$.sticky('Clever message', {position: 'bottom-center'});</p>
 
         <p>Overriding classList with warning class.</p>
         <p class="tryit" id="warning">$.sticky('Careful, there be dragons ahead', {classList: 'warning'});</p>
@@ -90,7 +93,10 @@
                     $.sticky('Upload complete', $.extend({}, defaults, {classList: 'success', speed: 'slow'}), callback)
                 });
                 $('#top-center').click(function(){
-                    $.sticky('Upload complete', $.extend({}, defaults, {position: 'top-center', autoclose: 0}))
+                    $.sticky('Look at me ma! I\'m right in the middle!', $.extend({}, defaults, {position: 'top-center'}))
+                });
+                $('#bottom-center').click(function(){
+                    $.sticky('All the way at the bottom, but I\'m still in the middle!', $.extend({}, defaults, {position: 'top-middle'}))
                 });
                 $('#warning').click(function(){
                     $.sticky('Careful, there be dragons ahead', $.extend({}, defaults, {classList: 'warning'}), callback)
