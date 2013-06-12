@@ -36,7 +36,7 @@
         <p class="tryit" id="callback">$.sticky('I am a plain text note. I'll tell you good job!.', callback);</p>
 
         <p>Overriding classList and speed</p>
-        <p class="tryit" id="success">$.sticky('Upload complete', {classList: 'success', speed: 'slow'});</p>
+        <p class="tryit" id="success">$.sticky('Upload complete', {classList: 'state-success', speed: 'slow'});</p>
 
         <p>Opening a note top, center</p>
         <p class="tryit" id="top-center">$.sticky('Clever message', {position: 'top-center'});</p>
@@ -44,25 +44,18 @@
         <p>Opening a note bottom, center</p>
         <p class="tryit" id="bottom-center">$.sticky('Clever message', {position: 'bottom-center'});</p>
 
-        <p>Overriding classList with warning class.</p>
-        <p class="tryit" id="warning">$.sticky('Careful, there be dragons ahead', {classList: 'warning'});</p>
+        <p>Overriding classList with state-warning class.</p>
+        <p class="tryit" id="warning">$.sticky('Careful, there be dragons ahead', {classList: 'state-warning'});</p>
 
         <p>Overriding classList, making note stay open.</p>
-        <p class="tryit" id="important">$.sticky('I give up, it just won't work.', {classList: 'important', autoclose: 0});</p>
+        <p class="tryit" id="important">$.sticky('I give up, it just won't work.', {classList: 'state-important', autoclose: 0});</p>
 
         <p>Overriding classList, allowing no duplicates.</p>
-        <p class="tryit" id="info">$.sticky('I just wanted you to know', {classList: 'info', allowdupes: false});</p>
+        <p class="tryit" id="info">$.sticky('I just wanted you to know', {classList: 'state-info', allowdupes: false});</p>
 
         <p><b>Returned: <span id="results" style="color:#eb5847;"></span></b></p>
 
         <p>As you can see above, a bit of JSON will be returned with some potentially pertinent information.</p>
-
-        <style type="text/css">
-            .success { background: #468847; color: #ffffff; }
-            .warning { background: #f89406; color: #ffffff; }
-            .important { background: #b94a48; color: #ffffff; }
-            .info { background: #3a87ad; color: #ffffff; }
-        </style>
 
         <script>
             $(function(){
@@ -71,7 +64,7 @@
                     speed: 'fast', // animations: fast, slow, or integer
                     allowdupes: true, // true or false
                     autoclose: 5000,  // delay in milliseconds. Set to 0 to remain open.
-                    classList: '' // arbitrary list of classes. Suggestions: success, warning, important, or info. Defaults to ''.
+                    classList: '' // arbitrary list of classes. Suggestions: state-success, state-warning, state-important, or state-info. Defaults to ''.
                 };
 
                 function callback(r) {
@@ -90,7 +83,7 @@
                     });
                 });
                 $('#success').click(function(){
-                    $.sticky('Upload complete', $.extend({}, defaults, {classList: 'success', speed: 'slow'}), callback)
+                    $.sticky('Upload complete', $.extend({}, defaults, {classList: 'state-success', speed: 'slow'}), callback)
                 });
                 $('#top-center').click(function(){
                     $.sticky('Look at me ma! I\'m right in the center!', $.extend({}, defaults, {position: 'top-center'}))
@@ -99,13 +92,13 @@
                     $.sticky('All the way at the bottom, but I\'m still in the center!', $.extend({}, defaults, {position: 'bottom-center'}))
                 });
                 $('#warning').click(function(){
-                    $.sticky('Careful, there be dragons ahead', $.extend({}, defaults, {classList: 'warning'}), callback)
+                    $.sticky('Careful, there be dragons ahead', $.extend({}, defaults, {classList: 'state-warning'}), callback)
                 });
                 $('#important').click(function(){
-                    $.sticky('I give up, it just won\'t work.', $.extend({}, defaults, {classList: 'important', autoclose: 0}), callback);
+                    $.sticky('I give up, it just won\'t work.', $.extend({}, defaults, {classList: 'state-important', autoclose: 0}), callback);
                 });
                 $('#info').click(function(){
-                    $.sticky('I just wanted you to know', $.extend({}, defaults, {classList: 'info', allowdupes: false}), callback);
+                    $.sticky('I just wanted you to know', $.extend({}, defaults, {classList: 'state-info', allowdupes: false}), callback);
                 });
 
             });
