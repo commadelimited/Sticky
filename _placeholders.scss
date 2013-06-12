@@ -1,0 +1,24 @@
+// Sticky silent placeholder helpers
+
+%top-sticky{
+	top:$sticky-tb-offset;
+	@include border-bottom-radius($border-radius);
+}
+
+%bottom-sticky{
+	bottom:$sticky-tb-offset;
+	@include border-top-radius($border-radius);
+}
+
+%center-sticky{
+	left:50%;
+	margin-left: $sticky-margin-offset; 
+}
+
+%left-sticky{
+	left:$sticky-lr-offset; 
+}
+
+%right-sticky{
+	right:$sticky-lr-offset; 
+}

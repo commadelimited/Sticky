@@ -1,0 +1,42 @@
+// Sticky configuration variables
+
+$states-on: true; // false to stop creation of states styles
+
+// ===========
+// Typography
+// ===========
+$base-font-size: 12px !default;
+
+// ===========
+// Colors
+// ===========
+
+// Theme
+$pri-color: #fff !default;
+$sec-color: #999 !default;
+
+// States
+$state-text-color: #fff !default;
+$success-color: #468847 !default;
+$warning-color: #f89406 !default;
+$important-color: #b94a48 !default;
+$info-color: #3a87ad !default;
+
+// Borders
+$border-color: $sec-color !default;
+
+// ===========
+// Size/Position
+// ===========
+$z-index: 100 !default;
+$sticky-width: 250px !default; // sets width of sticky
+$sticky-margin-offset: $sticky-width / -2 !default; // sets margin offset of centered stickies
+$sticky-padding: 10px !default; // sets padding of sticky
+$sticky-note-padding: $sticky-padding * 2 !default; // sets padding of sticky-note to make room for close button
+$sticky-lr-offset: 20px !default; // sets the offset for left/right stickies
+$sticky-tb-offset: -2px !default; // sets the offset for top/bottom stickies
+
+// ==========
+// Misc
+// ==========
+$border-radius: 6px !default;

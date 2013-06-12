@@ -1,52 +1,77 @@
+// Third-Party Imports
 @import "compass/css3/border-radius";
+@import "compass/css3/box-shadow";
 
+// Sticky Setup Imports
+@import "variables";
+@import "placeholders";
+
+// Sticky Styles
 .sticky-queue {
-	z-index: 100;
+	z-index: $z-index;
 	position:fixed;
-	background:#fff;
-	border: 1px solid #999999;
-	-moz-box-shadow:0 0 5px #bbb;
-	-webkit-box-shadow:0 0 5px #bbb;
-	box-shadow:0 0 5px #bbb;
-	width:250px;
+	background:$pri-color;
+	border: 1px solid $border-color;
+	width:$sticky-width;
 	overflow: hidden;
+	@include box-shadow(0 0 5px darken($sec-color, 13));
 }
-.sticky-note { padding-right:20px; margin: 0;}
+
+.sticky-note { padding-right:$sticky-note-padding; margin: 0;}
+
 .sticky {
-	font-size:12px;
-	color:#555;
+	font-size:$base-font-size;
+	color:darken($sec-color, 40);
 	display:none;
-	padding:10px;
+	padding:$sticky-padding;
 	position:relative;
 }
+
 .sticky-close {
 	position:absolute;
-	top:10px;
-	right:10px;
+	top:$sticky-padding;
+	right:$sticky-padding;
 	height:14px;
 	width:14px;
 	cursor:pointer;
+
+	&:before {
+		content: "\2716";
+	}
 }
-.sticky-close:before {
-	content: "\2716";
+	
+.top-right {
+	@extend %top-sticky;
+	@extend %right-sticky;
 }
-.top-right { right:20px; }
-.top-center { top: -2px; left: 50%; margin-left: -125px; }
-.top-left { left:20px; }
-.top-right,
-.top-center,
+
+.top-center {
+	@extend %top-sticky;
+	@extend %center-sticky;
+}
+
 .top-left {
-	top:-2px;
-	@include border-bottom-radius(6px);
+	@extend %top-sticky;
+	@extend %left-sticky;
 }
-.bottom-right { right:20px; }
-.bottom-center { bottom: -2px; left: 50%; margin-left: -125px; }
-.bottom-left { left:20px; }
-.bottom-right,
-.bottom-center,
+
+.bottom-right {
+	@extend %bottom-sticky;
+	@extend %right-sticky;
+}
+
+.bottom-center { 
+	@extend %bottom-sticky;
+	@extend %center-sticky;
+}
+
 .bottom-left {
-	bottom:-2px;
-	@include border-top-radius(6px);
+	@extend %bottom-sticky;
+	@extend %left-sticky;
 }
-.border-top-right, .border-top-center, .border-top-left { border-top:1px solid #999; }
-.border-bottom-right, .border-bottom-center, .border-bottom-left { border-bottom:1px solid #999; }
+
+.border-top-right, .border-top-center, .border-top-left { border-top:1px solid $border-color; }
+.border-bottom-right, .border-bottom-center, .border-bottom-left { border-bottom:1px solid $border-color; }
+
+// Sticky State Import
+@import "states"; // Down here so states override default sticky styles

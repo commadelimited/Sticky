@@ -1,0 +1,18 @@
+// Sticky notification states
+
+@if $states-on == true{
+
+	$states:
+	    ( success $success-color
+	    , warning $warning-color
+	    , important $important-color
+	    , info $info-color
+	    );
+
+	@each $i in $states {
+	    .state-#{nth($i, 1)} {
+	        background: nth($i, 2);
+	        color: $state-text-color;
+	    }
+	}
+} // end if
