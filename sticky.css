@@ -75,3 +75,23 @@
 /* line 74, sticky.scss */
 .border-bottom-right, .border-bottom-center, .border-bottom-left {
   border-bottom: 1px solid #999999; }
+
+/* line 13, _states.scss */
+.state-success {
+  background: #468847;
+  color: white; }
+
+/* line 13, _states.scss */
+.state-warning {
+  background: #f89406;
+  color: white; }
+
+/* line 13, _states.scss */
+.state-important {
+  background: #b94a48;
+  color: white; }
+
+/* line 13, _states.scss */
+.state-info {
+  background: #3a87ad;
+  color: white; }
