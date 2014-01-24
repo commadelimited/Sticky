@@ -8,6 +8,7 @@
     <script>jQuery.noConflict()</script>
     <!-- Load local QUnit (grunt requires v1.0.0 or newer). -->
     <link rel="stylesheet" href="../libs/qunit/qunit.css" media="screen">
+        <link href="../dist/sticky.css" rel="stylesheet" type="text/css" />
     <script src="../libs/qunit/qunit.js"></script>
 
     <!-- Load local lib and tests. -->
@@ -17,22 +18,17 @@
 </head>
 <body>
 
-    <h1 id="qunit-header">jQuery Mobile Tiny Sort Test Suite</h1>
+    <h1 id="qunit-header">Sticky Test Suite</h1>
+    <h2 id="qunit-banner"></h2>
+    <div id="qunit-testrunner-toolbar"></div>
+    <h2 id="qunit-userAgent"></h2>
+    <ol id="qunit-tests"></ol>
+    <div id="qunit-fixture">
 
-    <ul data-role="listview" data-inset="true" id="sortlist">
-        <li data-sort-firstname="alana" data-sort-lastname="Midgley">Alana Midgley</li>
-        <li data-sort-firstname="lonnie" data-sort-lastname="Wuest">Jaime Wuest</li>
-        <li data-sort-firstname="tania" data-sort-lastname="Maheu">Tania Maheu</li>
-        <li data-sort-firstname="benita" data-sort-lastname="Staudt">Benita Staudt</li>
-        <li data-sort-firstname="jaime" data-sort-lastname="Peat">Jaime Peat</li>
-        <li data-sort-firstname="clare" data-sort-lastname="Sellman">Clare Sellman</li>
-        <li data-sort-firstname="max" data-sort-lastname="Yuan">Max Yuan</li>
-        <li data-sort-firstname="andy" data-sort-lastname="Matthews">Andy Matthews</li>
-        <li data-sort-firstname="sofia" data-sort-lastname="Bernett">Sofia Bernett</li>
-        <li data-sort-firstname="lilia" data-sort-lastname="Sultan">Lilia Sultan</li>
-        <li data-sort-firstname="jaime" data-sort-lastname="matthews">Jaime Matthews</li>
-        <li data-sort-firstname="evan" data-sort-lastname="matthews">Evan Matthews</li>
-    </ul>
+        <textarea id="myTextarea">Existing content</textarea>
+        <span id="theCounter"></span>
+
+    </div>
 
 </body>
 </html>
