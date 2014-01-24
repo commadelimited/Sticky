@@ -6,7 +6,7 @@ A simple, lightweight notification plugin for jQuery.
 
 Sticky allows developers to quickly and easily display messages to users via a simple and streamlined notification center. Sticky is unique in that it groups multiple messages together to help keep your beautiful interface clutter-free.
 
-Sticky is only 1.4k for the minified version and 3.1k for the full.
+Sticky is only 1.3k for the minified version and 3.1k for the full.
 
 ## Installation
 
@@ -15,7 +15,7 @@ Using Sticky is easy.
 * Include jQuery, sticky.min.js, and sticky.css
 * Send messages!
 
-### Usage
+## Usage
 
 Plain note, default options
 
@@ -64,7 +64,7 @@ var response = {
 };
 ```
 
-### Configuration
+## Configuration
 
 ```
 var options = {
@@ -76,11 +76,24 @@ var options = {
 };
 ```
 
-## Contributing
+### Building locally, running unit tests
+So you'd rather build your own copy of Sticky, or want to run the unit tests? To get started running them please take the following steps:
+
+![image](http://www.huatuan.com/ab23/chacha/rumbasteps_files/image004.gif)
+
+Okay, for real. Do these things:
+
+1. Download this repo
+2. Run `npm install`
+3. Run `grunt`
+
+This will compile the new CSS and JS files into the `dist` directory.
+
+### Contributing
 
 You are invited to contribute code and suggestions to this project. The more the merrier.
 
-## Project Info
+### Project Info
 
 * Source: https://github.com/commadelimited/Sticky
 * Twitter: [http://twitter.com/commadelimited](http://twitter.com/commadelimited)
