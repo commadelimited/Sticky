@@ -36,44 +36,26 @@ module.exports = function(grunt) {
                 }
             }
         },
-        // sass: {
-        //     dist: {
-        //         options: {
-        //             trace: true,
-        //             style: 'compressed'
-        //         },
-        //         files: {
-        //             'src/sticky.scss': 'dist/sticky.css'
-        //         }
-        //     }
-        // },
-        // watch: {
-        //     sass: {
-        //         options: {
-        //             // Monitor Sass files for changes and compile them, but don't reload the browser.
-        //             livereload: false
-        //         },
-        //         files: '**/*.scss',
-        //         tasks: ['sass'],
-        //     },
-        //     css: {
-        //         // LiveReload on the CSS files instead of their Sass source files and you get
-        //         // the style to refresh without reloading the page in the browser.
-        //         files: '**/*.css'
-        //     },
-        //     options: {
-        //         livereload: true
-        //     }
-        // }
+        sass: {
+            dist: {
+                options: {
+                    style: 'compressed'
+                },
+                files: {
+                    'dist/sticky.css': 'src/sticky.scss'
+                }
+            }
+        }
     });
 
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-qunit');
     grunt.loadNpmTasks('grunt-contrib-concat');
-    // grunt.loadNpmTasks('grunt-contrib-sass');
-    // grunt.registerTask('sass', ['sass']);
+    grunt.loadNpmTasks('grunt-contrib-sass');
+
+    grunt.registerTask('sassme', ['sass']);
     grunt.registerTask('test', ['jshint', 'qunit']);
-    grunt.registerTask('default', ['jshint', 'qunit', 'concat', 'uglify']);
+    grunt.registerTask('default', ['jshint', 'qunit', 'concat', 'uglify', 'sass']);
 
 };
