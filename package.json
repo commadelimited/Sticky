@@ -1,0 +1,23 @@
+{
+  "name": "Sticky",
+  "filename": "sticky",
+  "version": "1.0.0",
+  "description": "Seriously simple notifications for jQuery",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/commadelimited/Sticky.git"
+  },
+  "author": "Andy Matthews",
+  "license": "MIT, GPL",
+  "homepage": "https://github.com/commadelimited/Sticky",
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "qunit": "~0.5.18",
+    "grunt-contrib-jshint": "~0.8.0",
+    "grunt-contrib-uglify": "~0.3.1",
+    "grunt-contrib-qunit": "~0.4.0",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-watch": "~0.5.1",
+    "grunt-contrib-sass": "~0.4.1"
+  }
+}

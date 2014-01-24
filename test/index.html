@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>jQuery Mobile Tiny Sort Test Suite</title>
+    <!-- Load local jQuery, removing access to $ (use jQuery, not $). -->
+    <script src="../libs/jquery/jquery.js"></script>
+    <script>jQuery.noConflict()</script>
+    <!-- Load local QUnit (grunt requires v1.0.0 or newer). -->
+    <link rel="stylesheet" href="../libs/qunit/qunit.css" media="screen">
+    <script src="../libs/qunit/qunit.js"></script>
+
+    <!-- Load local lib and tests. -->
+    <script src="../src/sticky.js"></script>
+
+    <script src="sticky_test.js"></script>
+</head>
+<body>
+
+    <h1 id="qunit-header">jQuery Mobile Tiny Sort Test Suite</h1>
+
+    <ul data-role="listview" data-inset="true" id="sortlist">
+        <li data-sort-firstname="alana" data-sort-lastname="Midgley">Alana Midgley</li>
+        <li data-sort-firstname="lonnie" data-sort-lastname="Wuest">Jaime Wuest</li>
+        <li data-sort-firstname="tania" data-sort-lastname="Maheu">Tania Maheu</li>
+        <li data-sort-firstname="benita" data-sort-lastname="Staudt">Benita Staudt</li>
+        <li data-sort-firstname="jaime" data-sort-lastname="Peat">Jaime Peat</li>
+        <li data-sort-firstname="clare" data-sort-lastname="Sellman">Clare Sellman</li>
+        <li data-sort-firstname="max" data-sort-lastname="Yuan">Max Yuan</li>
+        <li data-sort-firstname="andy" data-sort-lastname="Matthews">Andy Matthews</li>
+        <li data-sort-firstname="sofia" data-sort-lastname="Bernett">Sofia Bernett</li>
+        <li data-sort-firstname="lilia" data-sort-lastname="Sultan">Lilia Sultan</li>
+        <li data-sort-firstname="jaime" data-sort-lastname="matthews">Jaime Matthews</li>
+        <li data-sort-firstname="evan" data-sort-lastname="matthews">Evan Matthews</li>
+    </ul>
+
+</body>
+</html>
