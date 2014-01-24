@@ -1,5 +1,4 @@
-/* line 3, sticky.scss */
-.sticky-queue {
+ .sticky-queue {
   z-index: 100;
   position: fixed;
   background: #fff;
@@ -10,21 +9,18 @@
   width: 250px;
   overflow: hidden; }
 
-/* line 14, sticky.scss */
-.sticky-note {
+ .sticky-note {
   padding-right: 20px;
   margin: 0; }
 
-/* line 15, sticky.scss */
-.sticky {
+ .sticky {
   font-size: 12px;
   color: #555;
   display: none;
   padding: 10px;
   position: relative; }
 
-/* line 22, sticky.scss */
-.sticky-close {
+ .sticky-close {
   position: absolute;
   top: 10px;
   right: 10px;
@@ -32,26 +28,21 @@
   width: 14px;
   cursor: pointer; }
 
-/* line 30, sticky.scss */
-.sticky-close:before {
+ .sticky-close:before {
   content: "\2716"; }
 
-/* line 33, sticky.scss */
-.top-right {
+ .top-right {
   right: 20px; }
 
-/* line 34, sticky.scss */
-.top-center {
+ .top-center {
   top: -2px;
   left: 50%;
   margin-left: -125px; }
 
-/* line 35, sticky.scss */
-.top-left {
+ .top-left {
   left: 20px; }
 
-/* line 38, sticky.scss */
-.top-right,
+ .top-right,
 .top-center,
 .top-left {
   top: -2px;
@@ -62,22 +53,18 @@
   -webkit-border-bottom-right-radius: 6px;
   border-bottom-right-radius: 6px; }
 
-/* line 42, sticky.scss */
-.bottom-right {
+ .bottom-right {
   right: 20px; }
 
-/* line 43, sticky.scss */
-.bottom-center {
+ .bottom-center {
   bottom: -2px;
   left: 50%;
   margin-left: -125px; }
 
-/* line 44, sticky.scss */
-.bottom-left {
+ .bottom-left {
   left: 20px; }
 
-/* line 47, sticky.scss */
-.bottom-right,
+ .bottom-right,
 .bottom-center,
 .bottom-left {
   bottom: -2px;
@@ -88,10 +75,8 @@
   -webkit-border-top-right-radius: 6px;
   border-top-right-radius: 6px; }
 
-/* line 51, sticky.scss */
-.border-top-right, .border-top-center, .border-top-left {
+ .border-top-right, .border-top-center, .border-top-left {
   border-top: 1px solid #999; }
 
-/* line 52, sticky.scss */
-.border-bottom-right, .border-bottom-center, .border-bottom-left {
+ .border-bottom-right, .border-bottom-center, .border-bottom-left {
   border-bottom: 1px solid #999; }
